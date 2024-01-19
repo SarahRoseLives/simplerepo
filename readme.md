@@ -1,6 +1,3 @@
-Certainly! Here's a basic `README.md` file for your Flask application:
-
-
 # SimpleRepo - Debian Repository Generator
 
 SimpleRepo is a simple Python application that creates a Debian repository using Flask. It scans a specified directory for Debian package files (.deb), displays them in a web interface, and provides instructions on how to add the repository to `/etc/apt/sources.list`.
