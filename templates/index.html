@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleRepo: Index of /repo</title>
+</head>
+<body>
+    <h1>Available Files:</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Last Modified</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+                <tr>
+                    <td>{{ file['name'] }}</td>
+                    <td>{{ file['size'] }}</td>
+                    <td>{{ file['last_modified'] }}</td>
+                    <td><a href="{{ url_for('repo', filename=file['name']) }}">Download</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>How to Add Repository to /etc/apt/sources.list:</h2>
+    <p>Add the repository to your system with the following command:</p>
+    <pre>echo "deb http://{{ flask_host }}:{{ flask_port }}/repo/ /" | sudo tee -a /etc/apt/sources.list</pre>
+    <p>This single command adds the repository to your system's sources list.</p>
+</body>
+</html>
